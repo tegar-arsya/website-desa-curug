@@ -39,7 +39,7 @@ function Banner() {
               <h1>Konsultasikan Permasalahan Anda Dengan Kami</h1>
               <h2>Dedikasi untuk Kepentingan Terbaik Anda</h2>
               <div className="d-flex justify-content-center justify-content-lg-start">
-              <BannerButton href="https://wa.me/6281353677822" className="btn-get-started scrollto" icon={<FontAwesomeIcon icon={faWhatsapp} className='icon-whatsapp'/>} text="Konsultasi Sekarang" />
+              <BannerButton href="https://wa.me/6285869877083" className="btn-get-started scrollto" icon={<FontAwesomeIcon icon={faWhatsapp} className='icon-whatsapp'/>} text="Konsultasi Sekarang" />
               </div>
             </div>
             <div className="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
