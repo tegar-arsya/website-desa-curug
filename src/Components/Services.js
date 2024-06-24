@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGavel, faBalanceScale, faUsers, faHome } from '@fortawesome/free-solid-svg-icons';
+import { faGavel, faBalanceScale, faUsers, faHome, faLandmark } from '@fortawesome/free-solid-svg-icons';
 import '../assets/css/Services.css';
 
 const ServiceCard = ({ icon, title, description, delay }) => (
@@ -46,11 +46,16 @@ function Services() {
     },
     {
       icon: faHome,
-      title: "Pertahanan dan Properti",
+      title: "Pertanahan dan Properti",
       description: "Hak atas Tanah, Tanah Ulayat, Sengketa Tanah, dan lainnya.",
       delay: "400"
+    },
+    {
+      icon: faLandmark,
+      title: "PTUN",
+      description: "Sengketa administrasi negara, penundaan pelaksanaan keputusan, pembatalan keputusan administrasi yang tidak sah, dan perlindungan hak-hak individu atau badan hukum.",
+      delay: "500"
     }
-    // ... add more services here if needed
   ];
 
   return (

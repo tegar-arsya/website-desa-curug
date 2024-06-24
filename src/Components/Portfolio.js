@@ -52,7 +52,6 @@ function Portfolio() {
         <div className="container" data-aos="fade-up">
           <div className="section-title">
             <h2>Portofolio</h2>
-            <p>Magnam dolores commodi suscipit...</p>
           </div>
 
           <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="200">

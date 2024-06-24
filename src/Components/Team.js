@@ -25,7 +25,7 @@ function Team() {
             <div className="container" data-aos="fade-up">
                 <div className="section-title">
                     <h2>Team</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    {/* <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> */}
                 </div>
 
                 <div className="row">
@@ -34,7 +34,7 @@ function Team() {
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src={team1} className="img-fluid" alt="Walter White" /></div>
                             <div className="member-info">
-                                <h4>Abdul Rohim, SH</h4>
+                                <h4>ABDUL ROKHIM, S. HI., M. H</h4>
                                 <span>lorem ipsum</span>
                                 <p>lorem ipsum</p>
                                 <div className="social">
