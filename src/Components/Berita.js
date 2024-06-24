@@ -9,7 +9,7 @@ const BeritaCard = ({ icon, title, description, link, delay, isImage }) => (
   <div className={`col-xl-3 col-md-6 d-flex align-items-stretch mt-4 ${delay ? `mt-xl-0` : ''}`} data-aos="zoom-in" data-aos-delay={delay}>
     <div className="icon-box">
       <div className="icon" style={{ color: '#002366', fontSize: '50px' }}>
-        {isImage ? <img src={icon} alt={title} style={{ width: '200px', height: '200px' }} /> : <FontAwesomeIcon icon={icon} />}
+        {isImage ? <img src={icon} alt={title} style={{ width: '250px', height: '250px' }} /> : <FontAwesomeIcon icon={icon} />}
       </div>
       <h4><a href={link} target="_blank" rel="noopener noreferrer">{title}</a></h4>
       <p>{description}</p>
