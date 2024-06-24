@@ -5,7 +5,7 @@
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #47b2e4;
+  background: #0097b2;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -19,7 +19,7 @@
 }
 
 .back-to-top:hover {
-  background: #6bc1e9;
+  background: #0097b2;
   color: #fff;
 }
 
@@ -32,7 +32,7 @@
 --------------------------------------------------------------*/
 #footer {
   font-size: 14px;
-  background: #37517e;
+  background: #002366 !important;
 }
 
 #footer .footer-newsletter {

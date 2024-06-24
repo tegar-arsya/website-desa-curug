@@ -7,8 +7,6 @@ const Header = () => {
   const [activeLink, setActiveLink] = useState('');
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-  const [dropdownActive, setDropdownActive] = useState({}); // Using an object to manage multiple dropdowns
-
   useEffect(() => {
     const handleScroll = () => {
       setHeaderScrolled(window.scrollY > 100);
@@ -49,46 +47,19 @@ const Header = () => {
   };
   
 
-  const toggleDropdown = (index) => (e) => {
-    e.preventDefault();
-    setDropdownActive(prevState => ({ ...prevState, [index]: !prevState[index] }));
-  };
-
-  
-
   return (
     <header id="header" className={`fixed-top ${headerScrolled ? 'header-scrolled' : ''}`}>
       <div className="container d-flex align-items-center">
-        <h1 className="logo me-auto"><a href="index.html">Arsha</a></h1>
+        <h1 className="logo me-auto"><a href=".">Kantor Hukum dan Pengacara RIM PARTNER</a></h1>
 
         <nav id="navbar" className={`navbar ${isNavCollapsed ? '' : 'navbar-mobile'}`}>
           <ul>
             <li><a className={`nav-link scrollto nav1 ${activeLink === '#hero' ? 'active' : ''}`} href="#hero" onClick={scrollTo}>Home</a></li>
-            <li><a className={`nav-link scrollto ${activeLink === '#about-2' ? 'active' : ''}`} href="#about-2" onClick={scrollTo}>About</a></li>
-            <li><a className={`nav-link scrollto ${activeLink === '#services' ? 'active' : ''}`} href="#services" onClick={scrollTo}>Services</a></li>
+            {/* <li><a className={`nav-link scrollto ${activeLink === '#about' ? 'active' : ''}`} href="#about" onClick={scrollTo}>About</a></li> */}
+            <li><a className={`nav-link scrollto ${activeLink === '#services' ? 'active' : ''}`} href="#services" onClick={scrollTo}>Layanan</a></li>
             <li><a className={`nav-link scrollto ${activeLink === '#portfolio' ? 'active' : ''}`} href="#portfolio" onClick={scrollTo}>Portfolio</a></li>
-            <li><a className={`nav-link scrollto ${activeLink === '#team' ? 'active' : ''}`} href="#team" onClick={scrollTo}>Team</a></li>
-            <li className="dropdown">
-              <a href="#/" onClick={toggleDropdown('dropdown1')}><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
-              <ul className={`${dropdownActive['dropdown1'] ? 'dropdown-active' : ''}`}>
-                <li><a href="#">Drop Down 1</a></li>
-                <li className="dropdown">
-                  <a href="#/" onClick={toggleDropdown('deepDropdown')}><span>Deep Drop Down</span> <i className="bi bi-chevron-right"></i></a>
-                  <ul className={`${dropdownActive['deepDropdown'] ? 'dropdown-active' : ''}`}>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Drop Down 2</a></li>
-                <li><a href="#">Drop Down 3</a></li>
-                <li><a href="#">Drop Down 4</a></li>
-              </ul>
-            </li>
+            <li><a className={`nav-link scrollto ${activeLink === '#tentang' ? 'active' : ''}`} href="#tentang" onClick={scrollTo}>Tentang Kami</a></li>
             <li><a className={`nav-link scrollto ${activeLink === '#contact' ? 'active' : ''}`} href="#contact" onClick={scrollTo}>Contact</a></li>
-            <li><a className="getstarted scrollto" href="#about" onClick={scrollTo}>Get Started</a></li>
           </ul>
           <i className={`bi mobile-nav-toggle ${isNavCollapsed ? 'bi-list' : 'bi-x'}`} onClick={toggleNav}></i>
         </nav>

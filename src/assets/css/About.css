@@ -10,3 +10,8 @@
     padding-left: 0px;
     position: relative;
 }
+
+h2 {
+  font-family: "Jost", sans-serif;
+  align-items: center;
+}

@@ -71,9 +71,20 @@ section {
 }
 
 .section-bg {
-  background-color: #f3f5fa;
+  background-color: #e3f2ff;
+  margin-bottom: 40px;
 }
-
+.section-tentang {
+  background-color: #e3f2ff;
+  margin-bottom: 40px;
+}
+.section-porto{
+  background-color: #e3f2ff;
+  margin-bottom: 40px;
+}
+.section-contact{
+  background-color: #e3f2ff;
+}
 .section-title {
   text-align: center;
   padding-bottom: 30px;

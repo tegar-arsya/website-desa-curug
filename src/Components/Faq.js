@@ -70,7 +70,7 @@ function Faq() {
   };
 
   return (
-    <section id="faq" className="faq section-bg">
+    <section id="faq" className="faq ">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
           <h2>Frequently Asked Questions</h2>

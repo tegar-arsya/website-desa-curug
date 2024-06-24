@@ -9,7 +9,7 @@
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: rgba(40, 58, 90, 0.9) !important;
+  background: #002366 !important;
 }
 
 #header .logo {
@@ -23,7 +23,8 @@
 }
 
 #header .logo a {
-  color: #fff !important;
+  color: #ff0000 !important;
+  font-size: 20px;
 }
 
 #header .logo img {
@@ -57,7 +58,7 @@
   padding: 10px 0 10px 30px;
   font-size: 15px;
   font-weight: 500;
-  color: #fff !important;
+  color: #ff0000 !important;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -74,7 +75,7 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #47b2e4 !important;
+  color: #000000 !important;
 }
 
 .navbar .getstarted,

@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react';
-import { PlayCircle } from 'react-bootstrap-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Banner_img from '../assets/img/hero-img.png';
+import Banner_img from '../assets/img/RIMP.png';
 import '../assets/css/Banner.css';
 
-function BannerButton({ href, className, icon, text }) {
+
+function BannerButton({ href, className, icon, text, iconColor, textColor }) {
+  const buttonStyle = {
+    color: textColor ? textColor : 'white',  // Default text color is white
+  };
+
   return (
-    <a href={href} className={className}>
-      {icon && <PlayCircle className='icon-video'/>}
+    <a href={href} className={className} style={buttonStyle}>
+      {icon && <FontAwesomeIcon icon={faWhatsapp} className='icon-whatsapp' style={{ color: iconColor }} />}
       <span>{text}</span>
     </a>
   );
@@ -30,11 +36,10 @@ function Banner() {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-              <h1>Better Solutions For Your Business</h1>
-              <h2>We are team of talented designers making websites with Bootstrap</h2>
+              <h1>Konsultasikan Permasalahan Anda Dengan Kami</h1>
+              <h2>Dedikasi untuk Kepentingan Terbaik Anda</h2>
               <div className="d-flex justify-content-center justify-content-lg-start">
-                <BannerButton href="#get" className="btn-get-started scrollto" text="Get Started" />
-                <BannerButton href="#video" className="glightbox btn-watch-video" icon={<PlayCircle className='icon-video'/>} text="Watch Video" />
+              <BannerButton href="https://wa.me/6281353677822" className="btn-get-started scrollto" icon={<FontAwesomeIcon icon={faWhatsapp} className='icon-whatsapp'/>} text="Konsultasi Sekarang" />
               </div>
             </div>
             <div className="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">

@@ -5,7 +5,7 @@ import '../assets/css/Team.css';
 import { FaTwitter, FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 // Importing team images
-import team1 from '../assets/img/team/team-1.jpg';
+import team1 from '../assets/img/portfolio/1.jpg';
 import team2 from '../assets/img/team/team-2.jpg';
 import team3 from '../assets/img/team/team-3.jpg';
 import team4 from '../assets/img/team/team-4.jpg';
@@ -34,9 +34,9 @@ function Team() {
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src={team1} className="img-fluid" alt="Walter White" /></div>
                             <div className="member-info">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                                <h4>Abdul Rohim, SH</h4>
+                                <span>lorem ipsum</span>
+                                <p>lorem ipsum</p>
                                 <div className="social">
                                     <a href="#"><FaTwitter /></a>
                                     <a href="#"><FaFacebookF /></a>
@@ -48,7 +48,7 @@ function Team() {
                     </div>
 
                     {/* Team member 2 */}
-                    <div className="col-lg-6 mt-4 " data-aos="zoom-in" data-aos-delay="200">
+                    {/* <div className="col-lg-6 mt-4 " data-aos="zoom-in" data-aos-delay="200">
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src={team2} className="img-fluid" alt="Sarah Jhonson" /></div>
                             <div className="member-info">
@@ -63,10 +63,10 @@ function Team() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Team member 3 */}
-                    <div className="col-lg-6 mt-4 " data-aos="zoom-in" data-aos-delay="300">
+                    {/* <div className="col-lg-6 mt-4 " data-aos="zoom-in" data-aos-delay="300">
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src={team3} className="img-fluid" alt="William Anderson" /></div>
                             <div className="member-info">
@@ -81,10 +81,10 @@ function Team() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Team member 4 */}
-                    <div className="col-lg-6 mt-4 " data-aos="zoom-in" data-aos-delay="400">
+                    {/* <div className="col-lg-6 mt-4 " data-aos="zoom-in" data-aos-delay="400">
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src={team4} className="img-fluid" alt="Amanda Jepson" /></div>
                             <div className="member-info">
@@ -99,7 +99,7 @@ function Team() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>
