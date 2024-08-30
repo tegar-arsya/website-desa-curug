@@ -2,134 +2,100 @@
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
+  position: relative;
   width: 100%;
   height: 100vh;
-  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-#hero .container {
-  padding-top: 72px;
+.carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#hero h1, #hero h2 {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+#hero h1.aos-animate, #hero h2.aos-animate {
+  opacity: 1;
 }
 
 #hero h1 {
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   font-size: 48px;
   font-weight: 700;
-  line-height: 56px;
-  color: #545454;
+  line-height: 1.2;
+  transform: translateY(-30px);
 }
 
 #hero h2 {
-  color: #545454;
   margin-bottom: 50px;
   font-size: 24px;
-}
-
-#hero .btn-get-started {
-  font-family: "Jost", sans-serif;
-  align-items: center;
-  font-weight: 500;
-  font-size: 25px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 28px 11px 28px;
-  border-radius: 50px;
-  transition: 0.5s;
-  margin: 10px 0 0 0;
-  color: #ffffff !important;
-  background: #47b2e4;
-  text-decoration: none;
-
-}
-
-#hero .btn-get-started:hover {
-  background: #008000;
-}
-
-#hero .btn-watch-video {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  transition: 0.5s;
-  margin: 10px 0 0 25px;
-  color: #fff !important;
-  line-height: 1;
-  text-decoration: none;
-}
-
-svg.icon-video {
-  
-  line-height: 0;
-  color: #fff;
-  font-size: 32px;
-  transition: 0.3s;
-  margin-right: 8px;
-}
-
-
-
-
-#hero .animated {
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+  transform: translateY(30px);
 }
 
 @media (max-width: 991px) {
   #hero {
-    height: 100vh;
     text-align: center;
-  }
-
-  #hero .animated {
-    animation: none;
-  }
-
-  #hero .hero-img {
-    text-align: center;
-  }
-
-  #hero .hero-img img {
-    width: 50%;
   }
 }
 
 @media (max-width: 768px) {
   #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 36px;
+    line-height: 1.3;
   }
 
   #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 20px;
+    line-height: 1.5;
     margin-bottom: 30px;
-  }
-
-  #hero .hero-img img {
-    width: 70%;
   }
 }
 
 @media (max-width: 575px) {
-  #hero .hero-img img {
-    width: 80%;
+  #hero h1 {
+    font-size: 28px;
   }
 
-  #hero .btn-get-started {
-    font-size: 16px;
-    padding: 10px 24px 11px 24px;
+  #hero h2 {
+    font-size: 18px;
   }
-}
-
-@keyframes up-down {
-  0% {
-    transform: translateY(10px);
-  }
-
-  100% {
-    transform: translateY(-10px);
-  }
-}
-.icon-whatsapp {
-  margin-right: 10px; /* Atur jarak sesuai kebutuhan Anda */
-  font-size: 25px;
 }

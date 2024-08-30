@@ -89,3 +89,9 @@
 .icon-box:hover h4 {
   color: #47b2e4;
 }
+.service-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

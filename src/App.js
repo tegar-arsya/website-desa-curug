@@ -1,41 +1,65 @@
-// import AOS from 'aos';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import 'aos/dist/aos.css';
 import Nav from './Components/Nav';
 import './App.css';
-import Client from './Components/Client';
-// import Whyus from './Components/Whyus';
-import Banner from './Components/Banner';
-// import Skills from './Components/Skills';
-import Berita from './Components/Berita';
-import Services from './Components/Services';
-import Portfolio from './Components/Portfolio';
-import Team from './Components/Team';
-import Pricing from './Components/Pricing';
-import Faq from './Components/Faq';
+import Banner from './Components/Landing/Banner';
+import Galeri from './Components/Galeri';
+import StukturOrganisasi from './Components/StukturOrganisasi';
+import RekapanData from './Components/RekapanData';
+import StatistikDesa from './Components/StatistikDesa';
 import Contact from './Components/Contact';
 import Tentang from './Components/tentang';
 import Footer from './Components/Footer';
+import Login from './Components/views/admin/login';
+import Dashboard from './Components/views/admin/Dashboard'; // Example additional page
+import UploadGallery from './Components/views/admin/UploadGallery';
+import DaftarGallery from './Components/views/admin/DaftarGallery';
+import EditGallery from './Components/views/admin/EditGalery';
+
+const noHeaderFooterRoutes = [
+  '/login', 
+  '/Dashboard', 
+  '/UploadGallery', 
+  '/daftar-gallery',
+  '/edit-gallery/:id' // Tambahkan path ini agar halaman EditGallery tidak memiliki header dan footer
+];
+
+function Layout({ children }) {
+  const location = useLocation();
+  const isNoHeaderFooter = noHeaderFooterRoutes.some(route =>
+    new RegExp(`^${route.replace(/:\w+/g, '\\w+')}$`).test(location.pathname)
+  );
+
+  return (
+    <div className="App">
+      {!isNoHeaderFooter && <Nav />}
+      {children}
+      {!isNoHeaderFooter && <Contact />}
+      {!isNoHeaderFooter && <Footer />}
+    </div>
+  );
+}
+
 
 function App() {
   return (
-    <div className="App">
-    
-    <Nav />
-      <Banner/>
-     {/* <Client /> */}
-     {/* <About /> */}
-     <Services />
-     {/* <Cta /> */}
-     <Portfolio />
-
-     {/* <Pricing /> */}
-     {/* <Berita /> */}
-     <Tentang/>
-     <Team />
-     <Berita />
-    <Contact />
-     <Footer/>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Banner />} />
+          <Route path="/galeri" element={<Galeri />} />
+          <Route path="/statistik-desa" element={<StatistikDesa />} />
+          <Route path="/rekapan-data" element={<RekapanData />} />
+          <Route path="/tentang" element={<Tentang />} />
+          <Route path="/stuktur-organisasi" element={<StukturOrganisasi />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/UploadGallery" element={<UploadGallery />} />
+          <Route path="/daftar-gallery" element={<DaftarGallery />} />
+          <Route path="/edit-gallery/:id" element={<EditGallery />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

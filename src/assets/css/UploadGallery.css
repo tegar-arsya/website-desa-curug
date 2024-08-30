@@ -1,0 +1,55 @@
+/* UploadGallery.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+.upload-gallery-container {
+    display: flex;
+  }
+  
+  .upload-gallery-content {
+    padding: 20px;
+    width: calc(100% - 240px); /* Adjust according to sidebar width */
+  }
+  
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .upload-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .upload-form input, .upload-form textarea {
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .upload-form button {
+    padding: 12px 20px; /* Added padding for better button appearance */
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    width: 10%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+  }
+  
+  .upload-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02); /* Slightly enlarge button on hover */
+  }
+  
+  .upload-form button:active {
+    transform: scale(0.98); /* Slightly shrink button on click */
+  }

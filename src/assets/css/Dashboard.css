@@ -1,0 +1,89 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+.dashboard-container {
+  display: flex;
+}
+
+.dashboard-content {
+  padding: 20px;
+  width: calc(100% - 250px); /* Adjust according to sidebar width */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02); /* Slightly enlarge the card on hover */
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.card p {
+  color: #666;
+}
+/* Basic Reset for mobile screens */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column; /* Stack sidebar and content vertically on small screens */
+  }
+
+  .dashboard-content {
+    width: 100%; /* Full width on small screens */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .card-container {
+    grid-template-columns: 1fr; /* Single column layout for small screens */
+  }
+}
+
+/* For tablets and up, maintain the existing styles */
+@media (min-width: 769px) {
+  .dashboard-container {
+    display: flex;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+    width: calc(100% - 250px); /* Adjust according to sidebar width */
+    box-sizing: border-box; /* Include padding and border in width */
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Additional adjustments for larger screens, if needed */
+@media (min-width: 1200px) {
+  .dashboard-content {
+    width: calc(100% - 300px); /* Adjust width if the sidebar is wider */
+  }
+
+  .card-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Larger cards on large screens */
+  }
+}

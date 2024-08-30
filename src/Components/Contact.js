@@ -13,7 +13,12 @@ function Contact() {
     const { name, value } = event.target;
     setContact({ ...contact, [name]: value });
   };
-
+<input
+  type="text"
+  name="name"
+  value={contact.name}
+  onChange={handleInputChange}
+/>
   const handleSubmit = (event) => {
     event.preventDefault();
     // Implement your form submission logic here, e.g., sending data to a server
@@ -26,7 +31,11 @@ function Contact() {
       message: ''
     });
   };
-
+// Call handleSubmit when the form is submitted
+<form onSubmit={handleSubmit}>
+  {/* form fields */}
+  <button type="submit">Submit</button>
+</form>
   return (
     <section id="contact" className="contact section-contact">
       <div className="container" data-aos="fade-up">
@@ -60,12 +69,13 @@ function Contact() {
             </div>
           </div>
           <div className="col-lg-7 d-flex align-items-stretch">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.487192090354!2d110.47690972257068!3d-6.982425855543467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM3HCsDM1JzEwLjgiUyAxMTDCsDQ1JzUzLjUiRQ!5e0!3m2!1sen!2sid!4v1661002232058!5m2!1sen!2sid"
-              style={{ border: 0, width: '100%', height: '290px' }}
-              allowFullScreen
-              title="Google Maps"
-            ></iframe>
+          <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.7693282549115!2d110.6384425!3d-7.0129602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70945d811e85e9%3A0xd7a4024b08b31923!2sCurug%2C%20Kec.%20Tegowanu%2C%20Kabupaten%20Grobogan%2C%20Jawa%20Tengah!5e0!3m2!1sen!2sid!4v1691749191726!5m2!1sen!2sid"
+  style={{ border: 1, width: '100%', height: '300px' }}
+  allowFullScreen
+  title="Google Maps"
+></iframe>
+
           </div>
         </div>
       </div>

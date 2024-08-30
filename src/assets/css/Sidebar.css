@@ -1,0 +1,106 @@
+.dashboard-container {
+    display: flex;
+  }
+  
+  /* Sidebar styles */
+  .pro-sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #3498db;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(0); /* Ensure it is visible on desktop */
+  }
+  
+  /* Sidebar toggle button for mobile */
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    color: #3498db;
+    z-index: 1100;
+    cursor: pointer;
+  }
+  
+  /* Sidebar header styles */
+  .sidebar-title {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #ffffff;
+    text-align: center;
+    color: #ecf0f1;
+  }
+  
+  /* Sidebar navigation styles */
+  .sidebar-nav {
+    margin-top: 20px;
+  }
+  
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ecf0f1;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .sidebar-link:hover {
+    background: #3498db;
+    color: #fff;
+  }
+  
+  .sidebar-icon {
+    margin-right: 10px;
+  }
+  
+  /* Main content styles */
+  .main-content {
+    padding: 20px;
+    flex: 1; /* Ensures main content takes up the remaining space */
+    box-sizing: border-box; /* Ensures padding is included in width */
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .pro-sidebar {
+      width: 100%;
+      transform: translateX(-100%); /* Hide sidebar off-screen on mobile */
+    }
+  
+    .pro-sidebar.open {
+      transform: translateX(0); /* Show sidebar when open */
+    }
+  
+    .main-content {
+      margin-left: 0; /* Adjust content margin for mobile */
+    }
+  
+    .sidebar-toggle {
+      display: block; /* Show toggle button on mobile */
+    }
+  }
+  .sidebar-footer-content {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .sidebar-footer-content:hover {
+    background-color: #1a83ff;
+  }
+  
+  .sidebar-icon {
+    margin-right: 10px;
+  }
+  

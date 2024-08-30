@@ -1,0 +1,265 @@
+/* Default styles (mobile-first approach) */
+.statistik-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statistik-title {
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.statistik-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.statistik-left,
+.statistik-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.statistik-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+}
+
+.statistik-populasi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: 0.5s;
+  width: 100%;
+}
+
+.populasi-icon {
+  margin-bottom: 20px;
+  font-size: 60px;
+  color: #3498db;
+}
+
+.populasi-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.populasi-number {
+  font-size: 48px;
+  color: #2ecc71;
+  margin-bottom: 30px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.populasi-gender {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.gender-item {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #34495e;
+}
+
+.gender-icon {
+  margin-right: 5px;
+  color: #3498db;
+}
+
+.statistik-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: 0.75s;
+}
+
+.statistik-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statistik-icon {
+  font-size: 30px;
+  color: #3498db;
+  margin-right: 20px;
+}
+.statistik-text {
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.statistik-detail {
+  margin-top: 30px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: 1s;
+  width: 100%;
+}
+
+.statistik-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.statistik-table th, .statistik-table td {
+  padding: 15px;
+  border: 1px solid #ecf0f1;
+  text-align: left;
+}
+
+.statistik-table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.statistik-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/* Media Queries */
+@media (max-width: 1200px) {
+  .statistik-content {
+    flex-direction: column;
+  }
+  .statistik-left, .statistik-right, .statistik-center {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .statistik-title {
+    font-size: 24px;
+  }
+  .populasi-number {
+    font-size: 40px;
+  }
+  .statistik-item {
+    flex-direction: row;
+    align-items: center;
+  }
+  .statistik-icon {
+    font-size: 24px;
+  }
+  .statistik-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statistik-container {
+    padding: 20px;
+  }
+  .statistik-title {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  .populasi-number {
+    font-size: 36px;
+  }
+  .populasi-gender {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gender-item {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .statistik-title {
+    font-size: 18px;
+  }
+  .populasi-number {
+    font-size: 32px;
+  }
+  .statistik-item {
+    padding: 15px;
+  }
+  .statistik-icon {
+    font-size: 20px;
+    margin-right: 15px;
+  }
+  .statistik-text {
+    font-size: 14px;
+  }
+  .statistik-table th, .statistik-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

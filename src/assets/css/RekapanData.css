@@ -1,0 +1,197 @@
+/* Default styles (mobile-first approach) */
+.rekapan {
+  padding: 10px;
+}
+.rekapan-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 40px 0;
+  color: #37517e; /* Sesuaikan warna sesuai kebutuhan */
+}
+
+.rekapan-section {
+  margin-bottom: 20px;
+}
+.rekapan .section-title {
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.rekapan h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.rekapan-item {
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.rekapan-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.rekapan-body {
+  margin-top: 8px;
+}
+
+.rekapan-values {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.rekapan-value span:first-child {
+  margin-right: 0;
+}
+
+.progress {
+  height: 15px;
+}
+
+.progress-bar {
+  font-size: 10px;
+  line-height: 15px;
+}
+
+/* Tablet screens */
+@media (min-width: 768px) {
+  .rekapan {
+      padding: 15px;
+  }
+
+  .rekapan-section {
+      margin-bottom: 30px;
+  }
+
+  .rekapan-item {
+      padding: 20px;
+      margin-bottom: 20px;
+  }
+
+  .rekapan-header {
+      font-size: 18px;
+      margin-bottom: 10px;
+  }
+
+  .rekapan-body {
+      margin-top: 10px;
+  }
+
+  .rekapan-values {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 10px;
+  }
+
+  .progress {
+      height: 20px;
+  }
+
+  .progress-bar {
+      font-size: 12px;
+      line-height: 20px;
+  }
+}
+
+/* Desktop screens */
+@media (min-width: 1024px) {
+  .rekapan {
+      padding: 20px;
+  }
+
+  .rekapan-section {
+      margin-bottom: 40px;
+  }
+
+  .rekapan-item {
+      padding: 20px;
+      margin-bottom: 20px;
+  }
+
+  .rekapan-header {
+      font-size: 20px;
+      margin-bottom: 10px;
+  }
+
+  .rekapan-body {
+      margin-top: 15px;
+  }
+
+  .progress {
+      height: 25px;
+  }
+
+  .progress-bar {
+      font-size: 14px;
+      line-height: 25px;
+  }
+
+  .rekapan .section-title {
+      font-size: 28px;
+      margin-bottom: 50px;
+  }
+}
+
+@keyframes progress-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+@keyframes progress-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px; /* Sesuaikan jarak gerakan animasi */
+  }
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.rekapan-item .progress {
+  position: relative;
+  height: 20px; /* Sesuaikan tinggi progress bar */
+  background-color: #e0e0e0; /* Warna latar belakang progress bar */
+  border-radius: 10px; /* Radius border untuk sudut yang membulat */
+  overflow: hidden;
+}
+
+.rekapan-item .progress-bar {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(270deg, #00ff15, #ff0000, #1e00ff, #eeff01); /* Warna progress bar dengan gradient */
+  background-size: 400% 400%; /* Ukuran latar belakang gradient */
+  border-radius: 10px; /* Radius border untuk sudut yang membulat */
+  animation: progress-animation 1s ease-out forwards, gradient-move 4s linear infinite; /* Menambahkan animasi gradient bergerak */
+}
+
+.rekapan-item .progress-bar span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* Warna teks di dalam progress bar */
+  font-weight: bold;
+}
