@@ -59,7 +59,7 @@ function Galeri() {
   };
 
   const GaleriItems = posts.map((post) => ({
-    image: `http://localhost:5000${post.imageUrl}`,
+    image: `https://apicurug.tegararsyadani.my.id${post.imageUrl}`,
     title: post.title,
     description: post.description,
   }));
