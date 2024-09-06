@@ -19,7 +19,7 @@ const DaftarPerangkatDesa = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/perangkat/postsPerangkat');
+        const response = await fetch('https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat');
         const data = await response.json();
         setGalleryData(data);
       } catch (error) {
