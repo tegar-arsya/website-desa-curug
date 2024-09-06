@@ -23,7 +23,7 @@ function Tentang() {
     // Fetch population data
     const fetchPopulation = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/statistics/statistics');
+        const response = await axios.get('https://apicurug.tegararsyadani.my.id/api/statistics/statistics');
         setPopulation(response.data.population);
       } catch (error) {
         console.error('Error fetching population data:', error);

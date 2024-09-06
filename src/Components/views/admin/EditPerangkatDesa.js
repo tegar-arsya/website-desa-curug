@@ -5,7 +5,7 @@ import Sidebar from '../../Sidebar';
 import Swal from 'sweetalert2'; // Import SweetAlert2
 import '../../../assets/css/UploadGallery.css';
 
-const EditGallery = () => {
+const EditPerangkatDesa = () => {
   const { id } = useParams(); // Ambil ID dari URL
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
@@ -22,7 +22,7 @@ const EditGallery = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery/${id}`);
+        const response = await axios.get(`https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/${id}`);
         const { title, description, imageUrl } = response.data;
         setTitle(title);
         setDescription(description);
@@ -45,7 +45,7 @@ const EditGallery = () => {
     }
 
     try {
-      await axios.put(`https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery/${id}`, formData, {
+      await axios.put(`https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -61,7 +61,7 @@ const EditGallery = () => {
       });
 
      setTimeout(() => {
-        navigate('/daftar-gallery');
+        navigate('/daftar-perangkat-desa');
       }, 1500); // Delay navigation to allow SweetAlert to be visible
     } catch (error) {
       console.error('Error updating gallery item:', error);
@@ -72,7 +72,7 @@ const EditGallery = () => {
     <div className="upload-gallery-container">
       <Sidebar />
       <div className="upload-gallery-content">
-        <h1>Edit Gallery</h1>
+        <h1>Edit Perangkaat Desa</h1>
         <form onSubmit={handleSubmit} className="upload-form">
           <label htmlFor="title">Title</label>
           <input
@@ -105,4 +105,4 @@ const EditGallery = () => {
   );
 };
 
-export default EditGallery;
+export default EditPerangkatDesa;

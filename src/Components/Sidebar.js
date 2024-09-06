@@ -37,6 +37,9 @@ const SidebarComponent = () => {
             <a href="/daftar-gallery" className="sidebar-link">
               <FaUpload className="sidebar-icon" /> Daftar Gallery
             </a>
+            <a href="/daftar-perangkat-desa" className="sidebar-link">
+              <FaUpload className="sidebar-icon" /> Daftar Perangkat Desa
+            </a>
           </nav>
         </SidebarContent>
         <SidebarFooter>

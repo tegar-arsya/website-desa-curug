@@ -4,7 +4,7 @@ import swal from 'sweetalert';  // Import SweetAlert
 import Sidebar from '../../Sidebar';
 import '../../../assets/css/UploadGallery.css';
 
-const UploadGallery = () => {
+const UploadPerangkatDesa = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -34,7 +34,7 @@ const UploadGallery = () => {
 
     try {
       setLoading(true);
-      const response = await fetch('https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery/', {
+      const response = await fetch('https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/', {
         method: 'POST',
         body: formData,
       });
@@ -53,7 +53,7 @@ const UploadGallery = () => {
         button: 'OK',
       }).then(() => {
         // Redirect to daftar-gallery page after alert
-        navigate('/daftar-gallery');
+        navigate('/daftar-perangkat-desa');
       });
 
       // Reset form fields
@@ -72,7 +72,7 @@ const UploadGallery = () => {
     <div className="upload-gallery-container">
       <Sidebar />
       <div className="upload-gallery-content">
-        <h1>Upload Gallery</h1>
+        <h1>Upload Perangkat Desa</h1>
         <form onSubmit={handleSubmit} className="upload-form">
           <label htmlFor="title">Title</label>
           <input
@@ -110,4 +110,4 @@ const UploadGallery = () => {
   );
 };
 
-export default UploadGallery;
+export default UploadPerangkatDesa;

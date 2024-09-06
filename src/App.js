@@ -15,13 +15,19 @@ import Dashboard from './Components/views/admin/Dashboard'; // Example additiona
 import UploadGallery from './Components/views/admin/UploadGallery';
 import DaftarGallery from './Components/views/admin/DaftarGallery';
 import EditGallery from './Components/views/admin/EditGalery';
+import UploadPerangkatDesa from './Components/views/admin/UploadPerangkatDesa';
+import DaftarPerangkatDesa from './Components/views/admin/DaftarPerangkatDesa';
+import EditPerangkatDesa from './Components/views/admin/EditPerangkatDesa';
 
 const noHeaderFooterRoutes = [
   '/login', 
   '/Dashboard', 
   '/UploadGallery', 
   '/daftar-gallery',
-  '/edit-gallery/:id' // Tambahkan path ini agar halaman EditGallery tidak memiliki header dan footer
+  '/edit-gallery/:id',
+  '/UploadPerangkatDesa',
+  '/daftar-perangkat-desa',
+  '/edit-perangkat-desa/:id'
 ];
 
 function Layout({ children }) {
@@ -57,6 +63,9 @@ function App() {
           <Route path="/UploadGallery" element={<UploadGallery />} />
           <Route path="/daftar-gallery" element={<DaftarGallery />} />
           <Route path="/edit-gallery/:id" element={<EditGallery />} />
+          <Route path="/UploadPerangkatDesa" element={<UploadPerangkatDesa />} />
+          <Route path="/daftar-perangkat-desa" element={<DaftarPerangkatDesa />} />
+          <Route path="/edit-perangkat-desa/:id" element={<EditPerangkatDesa />} />
         </Routes>
       </Layout>
     </Router>

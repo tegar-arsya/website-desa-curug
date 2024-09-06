@@ -5,7 +5,7 @@ import Sidebar from '../../Sidebar';
 import '../../../assets/css/TabelGallery.css';
 import axios from 'axios';
 
-const DaftarGallery = () => {
+const DaftarPerangkatDesa = () => {
   const [galleryData, setGalleryData] = useState([]);
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const DaftarGallery = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery');
+        const response = await fetch('http://localhost:5000/api/perangkat/postsPerangkat');
         const data = await response.json();
         setGalleryData(data);
       } catch (error) {
@@ -32,7 +32,9 @@ const DaftarGallery = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery/${id}`);
+      // await axios.delete(`http://localhost:5000/api/perangkat/postsPerangkat/${id}`);
+      await axios.delete(`https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/${id}`);
+      
       setGalleryData(galleryData.filter(item => item.id !== id));
     } catch (error) {
       console.error('Error deleting gallery item:', error);
@@ -40,7 +42,7 @@ const DaftarGallery = () => {
   };
 
   const handleEdit = (id) => {
-    navigate(`/edit-gallery/${id}`); // Navigate to edit page
+    navigate(`/edit-perangkat-desa/${id}`); // Navigate to edit page
   };
 
   const columns = useMemo(
@@ -94,10 +96,10 @@ const DaftarGallery = () => {
     <div className="gallery-table-container">
       <Sidebar />
       <div className="gallery-table-content">
-        <h1>Gallery Table</h1>
+        <h1>Perangkat Desa Table</h1>
         <div className="upload-button-container">
-          <button onClick={() => navigate('/UploadGallery')} className="upload-button">
-            Upload Gallery
+          <button onClick={() => navigate('/UploadPerangkatDesa')} className="upload-button">
+            Tambah Perangkaat Desa
           </button>
         </div>
         <div className="table-controls">
@@ -182,4 +184,4 @@ const DaftarGallery = () => {
   );
 };
 
-export default DaftarGallery;
+export default DaftarPerangkatDesa;

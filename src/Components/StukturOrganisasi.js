@@ -18,7 +18,7 @@ function StukturOrganisasi() {
         // Fetch data from the API
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/perangkat/postsPerangkat');
+                const response = await axios.get('https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat');
                 setPosts(response.data);
             } catch (error) {
                 console.error('Error fetching posts:', error);
@@ -40,7 +40,7 @@ function StukturOrganisasi() {
                         <div className="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay={100 * (index + 1)} key={index}>
                             <div className="member d-flex align-items-start">
                                 <div className="pic">
-                                    <img src={`http://localhost:5000${post.imageUrl}`} className="img-fluid" alt={post.title} />
+                                    <img src={`https://apicurug.tegararsyadani.my.id${post.imageUrl}`} className="img-fluid" alt={post.title} />
                                 </div>
                                 <div className="member-info">
                                     <h4>{post.title}</h4>
