@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .dashboard-container {
   display: flex;
 }
@@ -12,6 +13,7 @@ body {
   padding: 20px;
   width: calc(100% - 250px); /* Adjust according to sidebar width */
   box-sizing: border-box; /* Include padding and border in width */
+  transition: width 0.3s; /* Smooth transition for width adjustments */
 }
 
 .card-container {
@@ -26,6 +28,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
+  cursor: pointer;
   transition: box-shadow 0.3s, transform 0.3s;
 }
 
@@ -42,6 +45,37 @@ body {
 .card p {
   color: #666;
 }
+
+.table-container {
+  margin-top: 20px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-container th,
+.table-container td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-container thead {
+  background-color: #007bff;
+  color: white;
+}
+
+.table-container tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-container tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
 /* Basic Reset for mobile screens */
 @media (max-width: 768px) {
   .dashboard-container {
@@ -57,33 +91,28 @@ body {
     grid-template-columns: 1fr; /* Single column layout for small screens */
   }
 }
-
-/* For tablets and up, maintain the existing styles */
-@media (min-width: 769px) {
-  .dashboard-container {
-    display: flex;
-  }
-
-  .dashboard-content {
-    padding: 20px;
-    width: calc(100% - 250px); /* Adjust according to sidebar width */
-    box-sizing: border-box; /* Include padding and border in width */
-  }
-
-  .card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-  }
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-/* Additional adjustments for larger screens, if needed */
-@media (min-width: 1200px) {
-  .dashboard-content {
-    width: calc(100% - 300px); /* Adjust width if the sidebar is wider */
-  }
+.dashboard-table th,
+.dashboard-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
-  .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Larger cards on large screens */
-  }
+.dashboard-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.dashboard-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.dashboard-table tr:hover {
+  background-color: #f1f1f1;
 }

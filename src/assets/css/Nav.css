@@ -1,6 +1,4 @@
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
+
 #header {
   transition: all 0.5s ease;
   z-index: 997;
@@ -24,23 +22,23 @@
 }
 
 #header .logo a {
-  color: #ff0000 !important;
+  color: #002366 !important;
   font-size: 15px;
   text-decoration: none;
 }
 
 #header .logo h1 {
-  font-size: 15px;
+  font-size: 28px;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  color: #ff0000 !important;
+  color: #002366 !important;
   text-transform: uppercase;
 }
 
 #header .logo img {
-  max-height: 60px;
+  max-height: 90px;
   transition: transform 0.3s ease;
 }
 
@@ -74,7 +72,7 @@
   padding: 10px 0 10px 30px;
   font-size: 15px;
   font-weight: bold;
-  color: #333333 !important;
+  color: #002366 !important;
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.3s ease;
@@ -84,7 +82,7 @@
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #002366 !important;
+  color: #00c3ff !important;
 }
 
 .navbar .getstarted,
@@ -93,17 +91,17 @@
   margin-left: 30px;
   border-radius: 50px;
   color: #ffffff !important;
-  background: #ff0000;
+  background: #002366;
   font-size: 14px;
-  border: 2px solid #ff0000 !important;
+  border: 2px solid #ffffff !important;
   font-weight: 600;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
-  background: #e5ff00 !important;
-  color: #002366 !important;
+  background: #002366!important;
+  color: #ffffff !important;
 }
 
 .navbar .dropdown ul {
@@ -152,7 +150,7 @@
 # Mobile Navigation 
 --------------------------------------------------------------*/
 .mobile-nav-toggle {
-  color: #fff !important;
+  color: #002366 !important;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -165,7 +163,7 @@
     padding: 8px 20px;
     margin: 15px;
     border-radius: 50px;
-    color: #37517e !important;
+    color: #fbff00 !important;
     font-size: 14px;
     border: 2px solid #47b2e4 !important;
     font-weight: 600;
@@ -296,7 +294,7 @@ i.bi.mobile-nav-toggle.bi-x {
   font-size: 20px;
   font-weight: bold;
   color: #002366 !important;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   width: 100%;
   text-align: center;
   padding: 10px 0;

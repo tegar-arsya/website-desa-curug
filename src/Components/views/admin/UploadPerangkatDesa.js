@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';  // Import SweetAlert
-import Sidebar from '../../Sidebar';
-import '../../../assets/css/UploadGallery.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert"; // Import SweetAlert
+import { FaCloudUploadAlt } from "react-icons/fa"; // Import icon from react-icons
+import Sidebar from "../../Sidebar";
+import "../../../assets/css/UploadGallery.css";
 
 const UploadPerangkatDesa = () => {
   const navigate = useNavigate();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [navigate]);
 
@@ -23,44 +24,47 @@ const UploadPerangkatDesa = () => {
     e.preventDefault();
 
     if (!title || !description || !image) {
-      setError('All fields are required');
+      setError("All fields are required");
       return;
     }
 
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('description', description);
-    formData.append('image', image);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("image", image);
 
     try {
       setLoading(true);
-      const response = await fetch('https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await fetch(
+        "https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to upload');
+        throw new Error(data.message || "Failed to upload");
       }
 
       // SweetAlert Success
       swal({
-        title: 'Success!',
-        text: 'Image uploaded successfully!',
-        icon: 'success',
-        button: 'OK',
+        title: "Success!",
+        text: "Image uploaded successfully!",
+        icon: "success",
+        button: "OK",
       }).then(() => {
         // Redirect to daftar-gallery page after alert
-        navigate('/daftar-perangkat-desa');
+        navigate("/daftar-perangkat-desa");
       });
 
       // Reset form fields
-      setTitle('');
-      setDescription('');
+      setTitle("");
+      setDescription("");
       setImage(null);
-      setError('');
+      setError("");
     } catch (err) {
       setError(err.message);
     } finally {
@@ -91,7 +95,10 @@ const UploadPerangkatDesa = () => {
             required
           ></textarea>
 
-          <label htmlFor="image">Upload Image</label>
+          <label htmlFor="image">
+            Upload Image
+            <FaCloudUploadAlt className="upload-icon" /> {/* Icon for upload */}
+          </label>
           <input
             type="file"
             id="image"
@@ -100,7 +107,7 @@ const UploadPerangkatDesa = () => {
           />
 
           <button type="submit" disabled={loading}>
-            {loading ? 'Uploading...' : 'Submit'}
+            {loading ? "Uploading..." : "Submit"}
           </button>
         </form>
 

@@ -1,29 +1,35 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTable, usePagination, useGlobalFilter } from 'react-table';
-import Sidebar from '../../Sidebar';
-import '../../../assets/css/TabelGallery.css';
-import axios from 'axios';
+// eslint-disable-next-line
+import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTable, usePagination, useGlobalFilter } from "react-table";
+import Sidebar from "../../Sidebar";
+import "../../../assets/css/TabelGallery.css";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+
 
 const DaftarGallery = () => {
   const [galleryData, setGalleryData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [navigate]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery');
+        const response = await fetch(
+          "https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery"
+        );
         const data = await response.json();
         setGalleryData(data);
       } catch (error) {
-        console.error('Error fetching gallery data:', error);
+        console.error("Error fetching gallery data:", error);
       }
     };
 
@@ -32,10 +38,25 @@ const DaftarGallery = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery/${id}`);
-      setGalleryData(galleryData.filter(item => item.id !== id));
+      const result = await Swal.fire({
+        title: "Apakah Kamu Yakin?",
+        text: "ingin menghapus item ini!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+
+      if (result.isConfirmed) {
+        await axios.delete(
+          `https://apicurug.tegararsyadani.my.id/api/gallery/postsGallery/${id}`
+        );
+        setGalleryData(galleryData.filter((item) => item.id !== id));
+        Swal.fire("Deleted!", "Your gallery item has been deleted.", "success");
+      }
     } catch (error) {
-      console.error('Error deleting gallery item:', error);
+      console.error("Error deleting gallery item:", error);
     }
   };
 
@@ -45,25 +66,40 @@ const DaftarGallery = () => {
 
   const columns = useMemo(
     () => [
-      { Header: 'Title', accessor: 'title' },
-      { Header: 'Description', accessor: 'description' },
+      { Header: "Title", accessor: "title" },
       {
-        Header: 'Image',
-        accessor: 'imageUrl',
-        Cell: ({ value }) => <img src={`https://apicurug.tegararsyadani.my.id${value}`} alt={value} width={50} />,
+        Header: "Image",
+        accessor: "imageUrl",
+        Cell: ({ value }) => (
+          <img
+            src={`https://apicurug.tegararsyadani.my.id${value}`}
+            alt={value}
+            width={50}
+          />
+        ),
       },
       {
-        Header: 'Actions',
-        accessor: 'id',
+        Header: "Actions",
+        accessor: "id",
         Cell: ({ value }) => (
           <>
-            <button onClick={() => handleEdit(value)} className="edit-button">Edit</button>
-            <button onClick={() => handleDelete(value)} className="delete-button">Delete</button>
+            <button
+              onClick={() => handleEdit(value)}
+              className="icon-button edit-button"
+            >
+              <FaEdit /> 
+            </button>
+            <button
+              onClick={() => handleDelete(value)}
+              className="icon-button delete-button"
+            >
+              <FaTrashAlt />
+            </button>
           </>
         ),
       },
     ],
-    [galleryData] // Depend on galleryData to update the table on delete
+    [galleryData] 
   );
 
   const data = useMemo(() => galleryData, [galleryData]);
@@ -96,13 +132,16 @@ const DaftarGallery = () => {
       <div className="gallery-table-content">
         <h1>Gallery Table</h1>
         <div className="upload-button-container">
-          <button onClick={() => navigate('/UploadGallery')} className="upload-button">
+          <button
+            onClick={() => navigate("/UploadGallery")}
+            className="upload-button"
+          >
             Upload Gallery
           </button>
         </div>
         <div className="table-controls">
           <input
-            value={globalFilter || ''}
+            value={globalFilter || ""}
             onChange={(e) => setGlobalFilter(e.target.value)}
             placeholder="Search..."
             className="search-input"
@@ -125,7 +164,9 @@ const DaftarGallery = () => {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
                 ))}
               </tr>
             ))}
@@ -136,7 +177,7 @@ const DaftarGallery = () => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   ))}
                 </tr>
               );
@@ -146,25 +187,28 @@ const DaftarGallery = () => {
         <div className="pagination-container">
           <div className="pagination">
             <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-              {'<<'}
+              {"<<"}
             </button>
             <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-              {'<'}
+              {"<"}
             </button>
             <span>
-              Page{' '}
+              Page{" "}
               <strong>
                 {pageIndex + 1} of {pageOptions.length}
-              </strong>{' '}
+              </strong>{" "}
             </span>
             <button onClick={() => nextPage()} disabled={!canNextPage}>
-              {'>'}
+              {">"}
             </button>
-            <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-              {'>>'}
+            <button
+              onClick={() => gotoPage(pageCount - 1)}
+              disabled={!canNextPage}
+            >
+              {">>"}
             </button>
             <span>
-              | Go to page:{' '}
+              | Go to page:{" "}
               <input
                 type="number"
                 defaultValue={pageIndex + 1}
@@ -172,7 +216,7 @@ const DaftarGallery = () => {
                   const page = e.target.value ? Number(e.target.value) - 1 : 0;
                   gotoPage(page);
                 }}
-                style={{ width: '50px' }}
+                style={{ width: "50px" }}
               />
             </span>
           </div>

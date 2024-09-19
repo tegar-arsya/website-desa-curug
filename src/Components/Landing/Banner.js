@@ -7,7 +7,6 @@ function Banner() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [
     "balaidesacurug.jpeg",
-    "kabupatengrobogan.png",
     "balaidesacurug.jpeg",
     // Tambahkan nama file gambar lainnya sesuai kebutuhan
   ];

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ProSidebar, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css'; // Import ProSidebar stylesheet
+import { ProSidebar, SidebarHeader, SidebarContent} from 'react-pro-sidebar';
+import 'react-pro-sidebar/dist/css/styles.css';
 import { FaTachometerAlt, FaUpload, FaBars, FaTimes, FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import '../assets/css/Sidebar.css'; // Import your custom stylesheet
@@ -40,13 +40,16 @@ const SidebarComponent = () => {
             <a href="/daftar-perangkat-desa" className="sidebar-link">
               <FaUpload className="sidebar-icon" /> Daftar Perangkat Desa
             </a>
+            <div className="sidebar-footer-content" onClick={handleLogout}>
+            <FaSignOutAlt className="sidebar-icon" /> Logout
+          </div>
           </nav>
         </SidebarContent>
-        <SidebarFooter>
+        {/* <SidebarFooter>
           <div className="sidebar-footer-content" onClick={handleLogout}>
             <FaSignOutAlt className="sidebar-icon" /> Logout
           </div>
-        </SidebarFooter>
+        </SidebarFooter> */}
       </ProSidebar>
       <div className="main-content">
         {/* Main content */}

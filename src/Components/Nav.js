@@ -6,16 +6,16 @@ import logo from "../assets/img/kabupatengrobogan.png"; // Path to your logo
 
 const Header = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-  const [showDropdown, setShowDropdown] = useState(false);
+  // const [showDropdown, setShowDropdown] = useState(false);
   const location = useLocation();
 
   const toggleNav = () => {
     setIsNavCollapsed(!isNavCollapsed);
   };
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+  // const toggleDropdown = () => {
+  //   setShowDropdown(!showDropdown);
+  // };
 
   const handleNavClick = () => {
     window.scrollTo({
@@ -74,47 +74,6 @@ const Header = () => {
               <Link className="nav-link" to="/tentang" onClick={handleNavClick}>
                 Tentang Kami
               </Link>
-            </li>
-            <li className="dropdown">
-              <a
-                href="#apbn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  toggleDropdown();
-                }}
-                className="nav-link"
-              >
-                APBN Desa
-              </a>
-              <ul className={`dropdown-menu ${showDropdown ? "show" : ""}`}>
-                <li>
-                  <a
-                    href="https://drive.google.com/link-to-2022"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    APBN 2022
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://drive.google.com/link-to-2023"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    APBN 2023
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://drive.google.com/link-to-2024"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    APBN 2024
-                  </a>
-                </li>
-              </ul>
             </li>
             <li>
               <Link className="getstarted nav-link" to="/login" onClick={handleNavClick}>

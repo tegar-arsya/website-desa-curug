@@ -9,10 +9,12 @@
     top: 0;
     left: 0;
     width: 250px;
-    background-color: #3498db;
+    background: linear-gradient(135deg, #1f8cf8, #47c3fc);
     z-index: 1000;
     transition: transform 0.3s ease;
     transform: translateX(0); /* Ensure it is visible on desktop */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    border-radius: 0 10px 10px 0; /* Rounded corners on the right */
   }
   
   /* Sidebar toggle button for mobile */
@@ -30,16 +32,18 @@
   /* Sidebar header styles */
   .sidebar-title {
     margin: 0;
-    padding: 10px 0;
-    font-size: 1.5rem;
+    padding: 20px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif; /* Elegant font */
     border-bottom: 2px solid #ffffff;
     text-align: center;
-    color: #ecf0f1;
+    color: #ffffff;
   }
   
   /* Sidebar navigation styles */
   .sidebar-nav {
-    margin-top: 20px;
+    margin-top: 30px;
   }
   
   .sidebar-link {
@@ -47,26 +51,39 @@
     align-items: center;
     text-decoration: none;
     color: #ecf0f1;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border-radius: 4px;
-    transition: background 0.3s, color 0.3s;
+    padding: 12px 20px;
+    font-size: 1.15rem;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .sidebar-link:hover {
-    background: #3498db;
+    background: rgba(255, 255, 255, 0.2);
     color: #fff;
+    transform: translateY(-2px); /* Slight lift on hover */
   }
   
   .sidebar-icon {
-    margin-right: 10px;
+    margin-right: 15px;
+    font-size: 1.3rem;
   }
-  
   /* Main content styles */
   .main-content {
-    padding: 20px;
+    padding: 30px;
     flex: 1; /* Ensures main content takes up the remaining space */
     box-sizing: border-box; /* Ensures padding is included in width */
+    background-color: #f4f6f9;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .main-content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #333;
   }
   
   /* Media queries for responsiveness */
@@ -88,19 +105,22 @@
       display: block; /* Show toggle button on mobile */
     }
   }
+  
   .sidebar-footer-content {
     padding: 15px;
     display: flex;
     align-items: center;
     cursor: pointer;
     color: #fff;
+    border-radius: 8px;
+    transition: background 0.3s ease;
   }
   
   .sidebar-footer-content:hover {
     background-color: #1a83ff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .sidebar-icon {
     margin-right: 10px;
   }
-  

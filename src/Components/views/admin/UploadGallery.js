@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';  // Import SweetAlert
+import { FaCloudUploadAlt } from 'react-icons/fa'; // Import icon from react-icons
 import Sidebar from '../../Sidebar';
 import '../../../assets/css/UploadGallery.css';
 
@@ -91,7 +92,10 @@ const UploadGallery = () => {
             required
           ></textarea>
 
-          <label htmlFor="image">Upload Image</label>
+          <label htmlFor="image">
+            Upload Image
+            <FaCloudUploadAlt className="upload-icon" /> {/* Icon for upload */}
+          </label>
           <input
             type="file"
             id="image"

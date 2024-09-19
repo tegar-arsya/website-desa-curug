@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'; // Import SweetAlert
 import '../../../assets/css/login.css';
 
 const Login = () => {
@@ -25,11 +26,21 @@ const Login = () => {
         navigate('/Dashboard');
       } else {
         const errorData = await response.json();
-        alert(errorData.message || 'Invalid email or password');
+        // Use SweetAlert for error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          text: errorData.message || 'Invalid email or password',
+        });
       }
     } catch (error) {
       console.error('Login failed:', error);
-      alert('An error occurred during login. Please try again.');
+      // Use SweetAlert for catching error
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'An error occurred during login. Please try again.',
+      });
     }
   };
 

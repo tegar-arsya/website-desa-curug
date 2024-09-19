@@ -1,9 +1,12 @@
+// eslint-disable-next-line
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTable, usePagination, useGlobalFilter } from 'react-table';
 import Sidebar from '../../Sidebar';
 import '../../../assets/css/TabelGallery.css';
 import axios from 'axios';
+import Swal from "sweetalert2";
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const DaftarPerangkatDesa = () => {
   const [galleryData, setGalleryData] = useState([]);
@@ -32,14 +35,28 @@ const DaftarPerangkatDesa = () => {
 
   const handleDelete = async (id) => {
     try {
-      // await axios.delete(`http://localhost:5000/api/perangkat/postsPerangkat/${id}`);
-      await axios.delete(`https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/${id}`);
-      
-      setGalleryData(galleryData.filter(item => item.id !== id));
+      const result = await Swal.fire({
+        title: "Apakah Kamu Yakin?",
+        text: "ingin menghapus item ini!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+
+      if (result.isConfirmed) {
+        await axios.delete(
+          `https://apicurug.tegararsyadani.my.id/api/perangkat/postsPerangkat/${id}`
+        );
+        setGalleryData(galleryData.filter((item) => item.id !== id));
+        Swal.fire("Deleted!", "Your gallery item has been deleted.", "success");
+      }
     } catch (error) {
-      console.error('Error deleting gallery item:', error);
+      console.error("Error deleting gallery item:", error);
     }
   };
+  
 
   const handleEdit = (id) => {
     navigate(`/edit-perangkat-desa/${id}`); // Navigate to edit page
@@ -59,8 +76,18 @@ const DaftarPerangkatDesa = () => {
         accessor: 'id',
         Cell: ({ value }) => (
           <>
-            <button onClick={() => handleEdit(value)} className="edit-button">Edit</button>
-            <button onClick={() => handleDelete(value)} className="delete-button">Delete</button>
+            <button
+              onClick={() => handleEdit(value)}
+              className="icon-button edit-button"
+            >
+              <FaEdit /> 
+            </button>
+            <button
+              onClick={() => handleDelete(value)}
+              className="icon-button delete-button"
+            >
+              <FaTrashAlt />
+            </button>
           </>
         ),
       },

@@ -29,7 +29,7 @@ function StukturOrganisasi() {
     }, []);
 
     return (
-        <section id="StukturOrganisasi" className="team section-bg">
+        <section id="StukturOrganisasi" className="team section-organisasi">
             <div className="container" data-aos="fade-up" style={{ marginTop: '100px' }}>
                 <div className="section-title">
                     <h2>Struktur Kepengurusan Desa Curug</h2>
